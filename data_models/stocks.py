@@ -8,25 +8,15 @@ class Stock:
     5. par_value -> float (percentage)
     '''
 
-    def __init__(self, **kwargs):
+    COMMON = 'COMMON'
+    PREFERRED = 'PREFERRED'
 
-        if len(kwargs) > 0 and len(kwargs) == 5:
-            self.symbol = kwargs['symbol']
-            self.type = kwargs['type']
-            self.last_dividend = float(kwargs['last_dividend'])
-            if kwargs['fixed_dividend'] != ' ':
-                self.fixed_dividend = kwargs['fixed_dividend']
-            else:
-                self.fixed_dividend = 0.0
-            self.par_value = float(kwargs['par_value'])
-        elif len(kwargs) == 0:
-            self.symbol = None
-            self.type = None
-            self.last_dividend = 0.0
-            self.fixed_dividend = 0.0
-            self.par_value = 0.0
-        else:
-            raise IOError("Error")
+    def __init__(self, symbol=None, type=None, last_dividend=0, fixed_dividend=0.0, par_value=0):
+        self.symbol = symbol
+        self.type = type
+        self.last_dividend = last_dividend
+        self.fixed_dividend = fixed_dividend / 100.0
+        self.par_value = par_value
 
     def __str__(self):
         return "symbol={}, type={}, last_dividend={}, fixed_dividend={}, par_value={}".format(

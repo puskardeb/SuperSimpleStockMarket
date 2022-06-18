@@ -18,11 +18,14 @@ class DataStoreService:
 
         for index, stock_row in stocks_dataframe.iterrows():
             symbol, type, last_div, fixed_div, par_val = stock_row
-            stock = Stock(symbol=symbol,
-                          type=type,
-                          last_dividend=last_div,
-                          fixed_dividend=fixed_div,
-                          par_value=par_val)
+            if fixed_div.strip() == '':
+                fixed_div = 0.0
+
+            stock = Stock(symbol=symbol.strip(),
+                          type=type.strip(),
+                          last_dividend=float(last_div),
+                          fixed_dividend=float(fixed_div),
+                          par_value=float(par_val))
             DataStoreService.stock_list[symbol] = stock
 
         # print(DataStoreService.stock_list)

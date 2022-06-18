@@ -5,5 +5,5 @@ class DividendController:
         pass
 
     @staticmethod
-    def calculate_dividend(stock):
-        DividendService.calculate(stock)
+    def calculate(stock, price):
+        return DividendService.calculate(stock, price)
