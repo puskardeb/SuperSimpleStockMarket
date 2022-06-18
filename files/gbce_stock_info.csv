@@ -3,4 +3,4 @@ TEA, common, 0, , 100
 POP, common, 8, , 100
 ALE, common, 23, , 60
 GIN, preferred, 8, 2, 100
-JOE, common, 13, 250
+JOE, common, 13, , 250
