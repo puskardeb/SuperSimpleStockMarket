@@ -1,9 +1,8 @@
 from controllers.datastore import DataStoreController
 from data_models.stocks import Stock
 
+
 class DividendService:
-    def __init__(self):
-        pass
 
     @staticmethod
     def calculate(stock, price):

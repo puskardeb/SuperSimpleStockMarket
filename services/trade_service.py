@@ -5,6 +5,10 @@ class TradeService:
     trade_ledger = {}
 
     @staticmethod
+    def get_trade_ledger():
+        return TradeService.trade_ledger
+
+    @staticmethod
     def record(stock, type, quantity, price, timestamp):
         trade = Trade(type, quantity, price, timestamp)
 

@@ -8,6 +8,10 @@ class DataStoreService:
     stock_list = dict()
 
     @staticmethod
+    def get_stock_list():
+        return DataStoreService.stock_list
+
+    @staticmethod
     def populate():
         current_directory = os.getcwd()
         csv_file_location = os.path.join('files', 'gbce_stock_info.csv')

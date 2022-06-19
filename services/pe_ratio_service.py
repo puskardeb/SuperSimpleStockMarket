@@ -2,8 +2,6 @@ from controllers.dividend import DividendController
 
 
 class PERatioService:
-    def __init__(self):
-        pass
 
     @staticmethod
     def calculate(stock, price):
