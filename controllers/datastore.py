@@ -2,8 +2,6 @@ from services.datastore_service import DataStoreService
 
 
 class DataStoreController:
-    def __init__(self):
-        pass
 
     @staticmethod
     def get_stock_list():
@@ -11,4 +9,7 @@ class DataStoreController:
 
     @staticmethod
     def populate():
-        DataStoreService.populate()
+        try:
+            DataStoreService.populate_from_csv()
+        except FileNotFoundError:
+            DataStoreService.populate_from_defaults()

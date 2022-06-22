@@ -1,6 +1,7 @@
 import datetime
-from controllers.datastore import DataStoreController
 from services.trade_service import TradeService
+from errors.error import StockNotFoundError
+
 
 class TradeController:
     @staticmethod
@@ -8,8 +9,14 @@ class TradeController:
         return TradeService.get_trade_ledger()
 
     @staticmethod
-    def record(stock, type, quantity, price):
-        if stock not in DataStoreController.get_stock_list():
-            print("Invalid stock entered!")
-            return
-        TradeService.record(stock, type, quantity, price, datetime.datetime.now())
+    def record(stock, type, quantity, price, dump_to_file=True):
+        try:
+            TradeService.record(stock, type, quantity, price, datetime.datetime.now(), dump_to_file)
+            return "success"
+        except StockNotFoundError as SNFE:
+            print(SNFE)
+            return "fail"
+
+    @staticmethod
+    def clear_file():
+        TradeService.clear_file()
