@@ -20,6 +20,12 @@ class TradeService:
         if type.strip().upper() not in ["BUY", "SELL"]:
             raise InvalidValueError("Invalid value! Need to enter either 'BUY' or 'SELL'!")
 
+        if price < 0:
+            raise InvalidValueError("Invalid value for price! Price cannot have negative value!")
+
+        if quantity < 0:
+            raise InvalidValueError("Invalid value for quantity! Quantity cannot have negative value!")
+
         trade = Trade(type, quantity, price, timestamp)
 
         if stock not in TradeService.trade_ledger:

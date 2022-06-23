@@ -1,6 +1,8 @@
 import os
 
 import pandas as pd
+import pprint
+
 from data_models.stocks import Stock
 from errors.error import StockTypeError
 
@@ -28,6 +30,10 @@ class DataStoreService:
     @staticmethod
     def populate_from_defaults():
         default_stock_info_map = DataStoreService.get_default_stock_info()
+        pp = pprint.PrettyPrinter(depth=4)
+
+        print("Reading from default stock info in memory ...")
+        pp.pprint(default_stock_info_map)
         iter_rows = enumerate(default_stock_info_map)
 
         DataStoreService.populate(iter_rows)

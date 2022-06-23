@@ -10,11 +10,12 @@ from controllers.gbce import GBCEController
 
 def run():
     DataStoreController.populate()
-    menu_msg = "1 for Calculating DIVIDEND yield.\n" \
+    menu_msg = "Please select an option as per choice:-\n" \
+               "1 for calculating dividend yield.\n" \
                "2 for calculating P/E ratio.\n" \
-               "3 for Recording Trade.\n" \
-               "4 for Calculating Volume Weighted Stock Price.\n" \
-               "5 for Calculating the GBCE All Share Index.\n" \
+               "3 for recording trade.\n" \
+               "4 for calculating Volume Weighted Stock Price.\n" \
+               "5 for calculating the GBCE All Share Index.\n" \
                "0 for exiting..." \
 
     stock_choice_list = set(DataStoreController.get_stock_list().keys())
@@ -47,7 +48,12 @@ def run():
                 quantity = int(input("Enter quantity:"))
                 price = float(input("Enter price:"))
                 buy_or_sell = input("Enter 'BUY' or 'SELL':").upper()
-                ret_str = TradeController.record(stock_name, buy_or_sell, quantity, price)
+                record_to_file = input("Do you want to record this trade to file? Type 'YES' or 'NO':")
+                if record_to_file.strip().upper() not in ["YES", "NO"]:
+                    print("Invalid choice selected! Please select either 'YES' or 'NO'.")
+                    continue
+                record_to_file = record_to_file.strip().upper() == "YES"
+                ret_str = TradeController.record(stock_name, buy_or_sell, quantity, price, record_to_file)
                 if ret_str == SUCCESS:
                     print("Recorded trade for {}ing stock '{}' with quantity {} and price {}".format(buy_or_sell.lower(), stock_name, quantity, price))
                 else:
