@@ -48,3 +48,7 @@ class TradeService:
         file_name = os.path.join('files', 'record_ledger.txt')
         with open(file_name, 'w') as f:
             pass
+
+    @classmethod
+    def clear_records(cls):
+        cls.trade_ledger = {}

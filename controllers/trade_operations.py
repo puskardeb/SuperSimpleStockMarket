@@ -46,3 +46,7 @@ class TradeController:
     @staticmethod
     def clear_file():
         TradeService.clear_file()
+
+    @staticmethod
+    def clear_records():
+        TradeService.clear_records()
