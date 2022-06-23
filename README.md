@@ -70,7 +70,7 @@ Please select an option as per choice:-
 3 for recording trade.
 4 for calculating Volume Weighted Stock Price.
 5 for calculating the GBCE All Share Index.
-0 for exiting...
+0 for exiting and clearing the trade record ledger.
 
 Enter option:
 ```
