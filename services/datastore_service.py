@@ -10,9 +10,9 @@ from errors.error import StockTypeError
 class DataStoreService:
     stock_list = dict()
 
-    @staticmethod
-    def get_stock_list():
-        return DataStoreService.stock_list
+    @classmethod
+    def get_stock_list(cls):
+        return cls.stock_list
 
     @staticmethod
     def populate_from_csv():
@@ -38,8 +38,8 @@ class DataStoreService:
 
         DataStoreService.populate(iter_rows)
 
-    @staticmethod
-    def populate(iter_rows):
+    @classmethod
+    def populate(cls, iter_rows):
         for index, stock_row in iter_rows:
             symbol, type, last_div, fixed_div, par_val = stock_row
             if fixed_div.strip() == '':
@@ -53,7 +53,7 @@ class DataStoreService:
                           last_dividend=float(last_div),
                           fixed_dividend=float(fixed_div),
                           par_value=float(par_val))
-            DataStoreService.stock_list[symbol] = stock
+            cls.stock_list[symbol] = stock
 
     @staticmethod
     def get_default_stock_info():

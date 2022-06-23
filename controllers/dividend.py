@@ -9,7 +9,7 @@ class DividendController:
     def process_dividend_opt():
         stock_choice_list = set(DataStoreController.get_stock_list().keys())
         stock_choice_msg = "Enter a stock from {} :".format(stock_choice_list)
-        stock_name = input(stock_choice_msg).upper()
+        stock_name = input(stock_choice_msg)
         price = float(input("Enter price:"))
         ret_str, value = DividendController.calculate(stock_name, price)
         if ret_str == "success":
@@ -26,4 +26,7 @@ class DividendController:
             return "fail", None
         except InvalidValueError as IVE:
             print(IVE)
+            return "fail", None
+        except Exception as ex:
+            print(ex)
             return "fail", None

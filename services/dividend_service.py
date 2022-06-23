@@ -10,6 +10,7 @@ class DividendService:
         if price <= 0:
             raise InvalidValueError("Price is {} which is invalid.".format(price))
 
+        stock = stock.upper()
         stock_list = DataStoreController.get_stock_list()
         stock_obj = stock_list[stock]
         stock_type = stock_obj.get_type().upper()

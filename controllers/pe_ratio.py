@@ -27,3 +27,6 @@ class PERatioController:
         except InvalidValueError as IVE:
             print(IVE)
             return "fail", None
+        except Exception as ex:
+            print(ex)
+            return "fail", None

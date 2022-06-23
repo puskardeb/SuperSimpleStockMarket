@@ -39,6 +39,9 @@ class TradeController:
         except StockNotFoundError as SNFE:
             print(SNFE)
             return "fail"
+        except Exception as ex:
+            print(ex)
+            return "fail"
 
     @staticmethod
     def clear_file():
