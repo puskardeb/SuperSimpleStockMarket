@@ -7,8 +7,10 @@ class DividendController:
     @staticmethod
     def calculate(stock, price):
         try:
-            return DividendService.calculate(stock, price)
+            return "success", DividendService.calculate(stock, price)
         except KeyError:
             print("Stock '{}' not present in stock list".format(stock))
+            return "fail", None
         except InvalidValueError as IVE:
             print(IVE)
+            return "fail", None
