@@ -32,7 +32,7 @@ Information:
 
 1. "gbce_stock_info.csv" is a file that is used for custom stock information. If the file is not present, the program will use default stock information that is present in memory.
 2. "record_ledger.txt" is used to when the user wants to record the trade to file and memory as well. Otherwise, the trade will be to recorded to memory only. By default, it records to file and memory
-3. Both of these files are present under files folder.
+3. Both of these files are present under 'files' folder.
 
 Requirements:
 
