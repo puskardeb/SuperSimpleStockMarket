@@ -80,5 +80,5 @@ Tests:
 To test the assignment using unittest, type in console window:-
 
 ```
-python3 test.py
+python3 test.py -b
 ```
