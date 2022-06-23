@@ -66,17 +66,17 @@ class TestCase(unittest.TestCase):
         TradeController.record('TEA', 'SELL', 2.9, 1.1, True)
 
         ret_str1, value1 = VolumeWeightedStockPriceController.calculate('ALE', datetime.timedelta(minutes=5))
-        ret_str2, value2 = VolumeWeightedStockPriceController.calculate('POP', datetime.timedelta(minutes=15))
-        ret_str3, value3 = VolumeWeightedStockPriceController.calculate('GIN', datetime.timedelta(hours=5))
-        ret_str4, value4 = VolumeWeightedStockPriceController.calculate('IGN', datetime.timedelta(seconds=2))
-        ret_str5, value5 = VolumeWeightedStockPriceController.calculate('TEA', datetime.timedelta(seconds=10))
+        ret_str2, value2 = VolumeWeightedStockPriceController.calculate('POP', datetime.timedelta(minutes=5))
+        ret_str3, value3 = VolumeWeightedStockPriceController.calculate('GIN', datetime.timedelta(minutes=5))
+        ret_str4, value4 = VolumeWeightedStockPriceController.calculate('IGN', datetime.timedelta(minutes=5))
+        ret_str5, value5 = VolumeWeightedStockPriceController.calculate('TEA', datetime.timedelta(minutes=5))
         ret_str6, value6 = VolumeWeightedStockPriceController.calculate('FAT', -1)
 
         self.assertEqual(value1, 173.46938775510205)
         self.assertEqual(value2, None)
         self.assertEqual(value3, 7.0)
         self.assertEqual(value4, None)
-        self.assertEqual(value5, 1.1)
+        self.assertEqual(value5, None)
         self.assertEqual(value6, None)
 
         TradeController.clear_records()
@@ -97,8 +97,8 @@ class TestCase(unittest.TestCase):
         ret_str3, value3 = GBCEController.calculate()
 
         self.assertEqual(value1, 10.0)
-        self.assertEqual(value2, 11.012971710131938)
-        self.assertEqual(value3, 11.012971710131938)
+        self.assertEqual(value2, 34.84660262185848)
+        self.assertEqual(value3, 34.84660262185848)
 
         TradeController.clear_records()
 

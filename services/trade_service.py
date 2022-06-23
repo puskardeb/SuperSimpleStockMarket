@@ -23,8 +23,9 @@ class TradeService:
         if price < 0:
             raise InvalidValueError("Invalid value for price! Price cannot have negative value!")
 
-        if quantity < 0:
-            raise InvalidValueError("Invalid value for quantity! Quantity cannot have negative value!")
+        if isinstance(quantity, (float, str)) or quantity < 0:
+            raise InvalidValueError("Invalid value for quantity! Quantity cannot be float, string or have negative "
+                                    "value!")
 
         trade = Trade(type, quantity, price, timestamp)
 
