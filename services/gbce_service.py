@@ -15,10 +15,10 @@ class GBCEService:
             raise InvalidValueError("No trades have been recorded yet!")
 
         total_vwsp = 0
-        print(trade_list.keys())
+
         for stock in trade_list.keys():
-            vswp = VolumeWeightedStockPriceController.calculate(stock)
-            if vswp:
+            ret_str, vswp = VolumeWeightedStockPriceController.calculate(stock)
+            if ret_str == "success":
                 total_vwsp += vswp
 
         gbce_all_share_index = math.pow(total_vwsp, 1 / len(trade_list))

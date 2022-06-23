@@ -4,6 +4,14 @@ from errors.error import InvalidValueError
 
 class GBCEController:
     @staticmethod
+    def process_gbce_opt():
+        ret_str, value = GBCEController.calculate()
+        if ret_str == "success":
+            print("The GBCE All Share Index is {}.".format(value))
+        else:
+            print("Unable to calculate GBCE All Share Index!")
+
+    @staticmethod
     def calculate():
         try:
             return "success", GBCEService.calculate()

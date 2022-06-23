@@ -1,4 +1,4 @@
-# SuperSimpleStockMarket
+# Super Simple Stock Market
 
 
 Description:
@@ -17,7 +17,7 @@ Constraints & Notes:
 2. No prior knowledge of stock markets or trading is required – all formulas are provided below.
 3. The code should provide only the functionality requested, however it must be production quality.
 
-Global Beverage Corporation Exchange
+Sample stock information:-
 
 | Stock Symbol | Type      | Last Dividend | Fixed Dividend | Par Value |
 |--------------|-----------|--------------:|:--------------:|----------:|
@@ -27,16 +27,19 @@ Global Beverage Corporation Exchange
 | GIN          | Preferred |             8 |       2%       |       100 |
 | JOE          | Common    |            13 |                |       250 |
 
+
+Information:
+
+1. "gbce_stock_info.csv" is a file that is used for custom stock information. If the file is not present, the program will use default stock information that is present in memory.
+2. "record_ledger.txt" is used to when the user wants to record the trade to file and memory as well. Otherwise, the trade will be to recorded to memory only. By default, it records to file and memory
+3. Both of these files are present under files folder.
+
 Requirements:
 
 - Python 3.6 or higher
 - pandas libraries of python
 
 
-Information:
-
-1. "gbce_stock_info.csv" is a file that is used for custom stock information. If the file is not present, the program will use default stock information that is present in memory.
-2. "record_ledger.txt" is used to when the user wants to record the trade to file and memory as well. Otherwise, the trade will be to recorded to memory only. By default, it records to file and memory
 
 To run the application, type in console window:
 ```
