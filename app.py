@@ -30,12 +30,14 @@ def run():
             print(menu_msg)
             option = int(input("Enter option:"))
 
+            if option not in options_dict.keys():
+                print("Invalid option. Please select between [0-5]")
+                continue
+
             option_function = options_dict[option]
             option_function()
 
-            if option not in options_dict.keys():
-                print("Invalid option. Please select between [0-5]")
-            elif option == 0:
+            if option == 0:
                 break
 
         except ValueError as VE:
@@ -46,4 +48,3 @@ def run():
 
         except Exception as ex:
             print(ex)
-
